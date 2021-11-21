@@ -1,1 +1,1 @@
-# My first project om Django - online shop
+# My first project on Django - online shop
