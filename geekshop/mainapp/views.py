@@ -1,27 +1,37 @@
 from django.shortcuts import render
-
+from mainapp.models import Product, ProductCategory
 
 # Create your views here.
 
 main_menu_links = [
     {'href': 'home', 'name': 'домой'},
-    {'href': 'products', 'name': 'продукты'},
+    {'href': 'products:index', 'name': 'продукты'},
     {'href': 'contact', 'name': 'контакты'},
 ]
 
+product_menu_links = [
+        {'href': 'products_all', 'name': 'все'},
+        {'href': 'products_home', 'name': 'дом'},
+        {'href': 'products_modern', 'name': 'модерн'},
+        {'href': 'products_classic', 'name': 'классика'},
+    ]
 
 def home(request):
+    title = 'магазин'
+    products = Product.objects.all()[:3]
     context = {
-        'title': 'магазин',
-        'main_menu_links': main_menu_links
+        'title': title,
+        'main_menu_links': main_menu_links,
+        'products': products,
     }
     return render(request, 'mainapp/index.html', context)
 
-
-def products(request):
+def products(request, pk=None):
+    print(pk)
     context = {
         'title': 'продукты',
-        'main_menu_links': main_menu_links
+        'main_menu_links': main_menu_links,
+        'product_menu_links': ProductCategory.objects.all(),
     }
     return render(request, 'mainapp/products.html', context)
 
@@ -46,12 +56,3 @@ def context(request):
     }
     return render(request, 'mainapp/test_context.html', context)
 
-
-def menu_products(request):
-    links_menu = [
-        {'href': 'products_all', 'name': 'все'},
-        {'href': 'products_home', 'name': 'дом'},
-        {'href': 'products_modern', 'name': 'модерн'},
-        {'href': 'products_classic', 'name': 'классика'},
-    ]
-    return render(request, 'inc_categories_menu.html', links_menu)

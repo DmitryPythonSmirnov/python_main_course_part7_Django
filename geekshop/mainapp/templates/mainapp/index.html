@@ -62,8 +62,23 @@
 					</div>
 				</div>
 		</div>
-		
+
+		<div class="block" style="display: flex; justify-content: space-around">
+		{% for product in products %}
+			<a href="">
+				<img src="/media/{{ product.image }}" alt="{{ product.short_desc }}">
+				<div class="text">
+					<h3>Категория продукта: {{ product.category.name }}</h3>
+					<h4>Название продукта: {{ product.name }}</h4>
+					<p>Описание продукта: {{ product.description }}</p>
+					<p>Цена: {{ product.price }}</p>
+				</div>
+			</a>
+		{% endfor %}
+		</div>
+
 		<div class="clr"></div>
+
 		{% endblock %}
 	</div>
 
