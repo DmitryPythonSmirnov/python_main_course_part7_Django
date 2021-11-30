@@ -5,8 +5,7 @@
     <form class="form-horizontal" action="{% url 'auth:login' %}" method="post">
         {% csrf_token %}
         {{ login_form.as_p }}
-        <input type="submit" class="btn btn-primary" value="Войти">
+        <br>
+        <input class="form-control" type="submit" value="войти">
     </form>
-    <hr>
-    <a href="{% url 'auth:register' %}">Регистрация</a>
 {% endblock %}

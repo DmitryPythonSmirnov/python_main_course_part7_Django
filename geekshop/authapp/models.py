@@ -4,5 +4,5 @@ from django.contrib.auth.models import AbstractUser
 
 
 class ShopUser(AbstractUser):
-    avatar = models.ImageField(upload_to='users_avatar', blank=True, verbose_name='Аватар')
-    age = models.PositiveSmallIntegerField(verbose_name='Возраст')
+    avatar = models.ImageField(upload_to='users_avatar', blank=True)
+    age = models.PositiveIntegerField(verbose_name='Возраст')
