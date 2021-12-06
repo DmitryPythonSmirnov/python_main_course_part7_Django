@@ -16,12 +16,7 @@
 		{% block menu %}
 		<div class="hero-white">
 			<div class="header clearfix">
-				<a href="{% url 'home' %}" class="logo"></a>
-
 				{% include 'mainapp/includes/inc_main_menu.html' %}
-
-				<a href="#" class="search"></a>
-                <a href="#" class="basket"></a>
 			</div>
 		</div>
 		{% endblock %}
@@ -29,9 +24,7 @@
 		{% block content %}
 		<div class="details">
 			<div class="links clearfix">
-
 				{% include 'mainapp/includes/inc_categories_menu.html' %}
-
 			</div>
 
 			<div class="details-products">
@@ -116,9 +109,6 @@
 
 		<div class="clr"></div>
 		{% endblock %}
-	</div>	
-
-
-
+	</div>
 </body>
 </html>

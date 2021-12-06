@@ -15,11 +15,7 @@
 		{% block menu %}
 		<div class="slider">
 			<div class="header clearfix">
-				<a href="{% url 'home' %}" class="logo"></a>
-
 				{% include 'mainapp/includes/inc_main_menu.html' %}
-
-				<a href="#" class="search"></a>
 			</div>
 			<div class="text-slider">
 				<h3 class="green">тенденции</h3>
@@ -65,7 +61,7 @@
 
 		<div class="block" style="display: flex; justify-content: space-around">
 		{% for product in products %}
-			<a href="">
+			<a href="#">
 				<img src="/media/{{ product.image }}" alt="{{ product.short_desc }}">
 				<div class="text">
 					<h3>Категория продукта: {{ product.category.name }}</h3>
