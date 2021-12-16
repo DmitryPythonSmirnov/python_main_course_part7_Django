@@ -381,7 +381,7 @@ html, body {
 
 .basket_container {
     margin: 25px auto;
-    width: 700px;
+    width: 800px;
 }
 
 .basket_list input[type="number"] {
@@ -710,8 +710,6 @@ html, body {
 	display: block;
     margin-left: 30px;
     width: 150px;
-    font-weight: bold;
-    color: red;
 }
 
 .clearfix:after {
