@@ -15,11 +15,7 @@
 		{% block menu %}
 		<div class="slider">
 			<div class="header clearfix">
-				<a href="{% url 'home' %}" class="logo"></a>
-
 				{% include 'mainapp/includes/inc_main_menu.html' %}
-
-				<a href="#" class="search"></a>
 			</div>
 			<div class="text-slider">
 				<h3 class="green">тенденции</h3>
@@ -42,39 +38,20 @@
 			<div class="clearfix">
 			</div>
 				<div class="tab-content">
-					<div class="block">
-						<a href="#"><img src="{% static 'img/product-1.jpg' %}" alt="">
-							<div class="text">
-								<img src="{% static 'img/icon-hover.png' %}" alt="img">
-								<h4>Отличный стул</h4>
-								<p>Расположитесь комфортно. </p>
-							</div>
-						</a>
-					</div>
-					<div class="block">
-						<a href="#"><img src="{% static 'img/product-2.jpg' %}" alt="">
-							<div class="text">
-								<img src="{% static 'img/icon-hover.png' %}" alt="">
-								<h4>Стул повышенного качества</h4>
-								<p>Не оторваться. </p>
-							</div>
-						</a>
-					</div>
+					{% for product in products %}
+						<div class="block">
+							<a href="{% url 'mainapp:product' product.pk %}">
+								<img src="/media/{{ product.image }}" alt="{{ product.short_desc }}">
+								<div class="text">
+									<h3>Категория продукта: {{ product.category.name }}</h3>
+									<h4>Название продукта: {{ product.name }}</h4>
+									<p>Описание продукта: {{ product.description }}</p>
+									<p>Цена: {{ product.price }}</p>
+								</div>
+							</a>
+						</div>
+					{% endfor %}
 				</div>
-		</div>
-
-		<div class="block" style="display: flex; justify-content: space-around">
-		{% for product in products %}
-			<a href="">
-				<img src="/media/{{ product.image }}" alt="{{ product.short_desc }}">
-				<div class="text">
-					<h3>Категория продукта: {{ product.category.name }}</h3>
-					<h4>Название продукта: {{ product.name }}</h4>
-					<p>Описание продукта: {{ product.description }}</p>
-					<p>Цена: {{ product.price }}</p>
-				</div>
-			</a>
-		{% endfor %}
 		</div>
 
 		<div class="clr"></div>
